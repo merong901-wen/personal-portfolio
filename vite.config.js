@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
@@ -14,7 +13,25 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: path.resolve(__dirname, 'dist'),  // Absolute path
-    chunkSizeWarningLimit: 2000  // Increase limit
+    outDir: 'dist',
+    chunkSizeWarningLimit: 2000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('three') || id.includes('@react-three')) {
+              return 'three-vendor'
+            }
+            if (id.includes('gsap')) {
+              return 'gsap-vendor'
+            }
+            if (id.includes('react')) {
+              return 'react-vendor'
+            }
+            return 'vendor'
+          }
+        }
+      }
+    }
   }
 })
