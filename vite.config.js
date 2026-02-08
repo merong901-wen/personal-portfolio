@@ -14,6 +14,19 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    chunkSizeWarningLimit: 1000  // Just increase warning limit, skip manualChunks for now
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        // manualChunks should be a FUNCTION, not object
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor';
+            }
+            return 'vendor';
+          }
+        }
+      }
+    }
   }
 })
