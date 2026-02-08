@@ -10,6 +10,9 @@ export default defineConfig({
         target: 'http://localhost:5000',
         changeOrigin: true
       }
+        build: {
+    outDir: 'dist',  // Make sure this says 'dist'
+  }
     }
   }
 })
