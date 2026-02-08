@@ -13,7 +13,15 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'dist',  // This should be at the root level, not inside server
-    chunkSizeWarningLimit: 1000  // Optional: for large file warnings
+    outDir: 'dist',
+    chunkSizeWarningLimit: 1000,  // Ignore large file warnings
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          // Add other large libraries here
+        }
+      }
+    }
   }
 })
