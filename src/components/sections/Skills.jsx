@@ -332,7 +332,7 @@ const Skills = ({ darkMode }) => {
 
                         <div className="skills-stats">
                             <div className={`stat-item ${darkMode ? 'stat-item-dark' : 'stat-item-light'}`}>
-                                <div className={`stat-number ${darkMode ? 'stat-number-dark' : 'stat-number-light'}`}>3+</div>
+                                <div className={`stat-number ${darkMode ? 'stat-number-dark' : 'stat-number-light'}`}>1+</div>
                                 <div className={`stat-label ${darkMode ? 'stat-label-dark' : 'stat-label-light'}`}>Years Experience</div>
                             </div>
                             <div className={`stat-item ${darkMode ? 'stat-item-dark' : 'stat-item-light'}`}>

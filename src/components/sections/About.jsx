@@ -294,7 +294,7 @@ const About = ({ darkMode }) => {
                                 >
                                     <div className="highlight-icon">💼</div>
                                     <div className="highlight-text">
-                                        <strong>50+ Projects</strong> delivered successfully
+                                        <strong>5+ Projects</strong> delivered successfully
                                     </div>
                                 </Motion.div>
 
