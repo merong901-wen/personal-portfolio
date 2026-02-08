@@ -10,9 +10,10 @@ export default defineConfig({
         target: 'http://localhost:5000',
         changeOrigin: true
       }
-        build: {
-    outDir: 'dist',  // Make sure this says 'dist'
-  }
     }
+  },
+  build: {
+    outDir: 'dist',  // This should be at the root level, not inside server
+    chunkSizeWarningLimit: 1000  // Optional: for large file warnings
   }
 })
