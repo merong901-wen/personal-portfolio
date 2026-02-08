@@ -14,14 +14,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    chunkSizeWarningLimit: 1000,  // Ignore large file warnings
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          // Add other large libraries here
-        }
-      }
-    }
+    chunkSizeWarningLimit: 1000  // Just increase warning limit, skip manualChunks for now
   }
 })
