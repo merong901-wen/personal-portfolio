@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
@@ -13,20 +14,7 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'dist',
-    chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        // manualChunks should be a FUNCTION, not object
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'vendor';
-            }
-            return 'vendor';
-          }
-        }
-      }
-    }
+    outDir: path.resolve(__dirname, 'dist'),  // Absolute path
+    chunkSizeWarningLimit: 2000  // Increase limit
   }
 })
